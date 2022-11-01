@@ -12,6 +12,10 @@ class TransactionRepeat extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'ends_at' => 'datetime',
+    ];
+
     public function transaction(): BelongsTo
     {
         return $this->belongsTo(Transaction::class, 'transaction_repeat_id');

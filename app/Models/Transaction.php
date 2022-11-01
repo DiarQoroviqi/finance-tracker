@@ -7,12 +7,19 @@ namespace App\Models;
 use App\Enums\TransactionType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Category extends Model
+class Transaction extends Model
 {
     use HasFactory;
 
     protected $casts = [
         'type' => TransactionType::class,
+        'date' => 'date',
     ];
+
+    public function repeat(): HasOne
+    {
+        return $this->hasOne(TransactionRepeat::class);
+    }
 }

@@ -16,4 +16,9 @@ class Budget extends Model
         'period_ends_at' => 'datetime:Y-m-d',
         'include_incomes' => 'boolean',
     ];
+
+    public function addRecord()
+    {
+
+    }
 }

@@ -4,15 +4,12 @@ declare(strict_types=1);
 
 namespace App\Enums;
 
+use App\Enums\Concerns\InteractsWithRandom;
+
 enum TransactionConfirmationType: string
 {
+    use InteractsWithRandom;
+
     case Automatic = 'automatic';
     case Manually = 'manually';
-
-    public static function getRandom(): TransactionConfirmationType
-    {
-        $enums = self::cases();
-
-        return $enums[array_rand($enums)];
-    }
 }

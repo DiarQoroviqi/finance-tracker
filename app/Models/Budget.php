@@ -19,6 +19,5 @@ class Budget extends Model
 
     public function addRecord()
     {
-
     }
 }

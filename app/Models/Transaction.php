@@ -18,6 +18,15 @@ class Transaction extends Model
         'date' => 'date',
     ];
 
+    protected $fillable = [
+        'category_id',
+        'transaction_repeat_id',
+        'type',
+        'date',
+        'amount',
+        'note'
+    ];
+
     public function repeat(): HasOne
     {
         return $this->hasOne(TransactionRepeat::class);

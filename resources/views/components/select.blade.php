@@ -5,7 +5,7 @@
 
     @foreach($options as $key => $value)
         <option value="{{ $key }}" {{ (string) $key === (string) $selected ? 'selected' : '' }}>
-            {{ __($value) }}
+            {{ ucfirst(__($value)) }}
         </option>
     @endforeach
 </select>

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
-use App\Enums\TransactionConfirmationType;
+use App\Enums\TransactionConfirmType;
 use App\Enums\TransactionRepeatingType;
 use App\Models\TransactionRepeat;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -24,9 +24,9 @@ class TransactionRepeatFactory extends Factory
     public function definition(): array
     {
         return [
-            'confirmation_type' => TransactionConfirmationType::getRandom()->value,
+            'confirmation_type' => TransactionConfirmType::getRandom()->value,
             'period' => $this->faker->numberBetween(1, 31),
-            'type' => TransactionRepeatingType::getRandom()->value,
+            'period_type' => TransactionRepeatingType::getRandom()->value,
             'ends_at' => null,
         ];
     }

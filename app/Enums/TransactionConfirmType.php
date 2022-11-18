@@ -7,11 +7,11 @@ namespace App\Enums;
 use App\Enums\Concerns\InteractsWithBackedEnum;
 use App\Enums\Concerns\InteractsWithRandom;
 
-enum TransactionType: int
+enum TransactionConfirmType: int
 {
     use InteractsWithRandom;
     use InteractsWithBackedEnum;
 
-    case Income = 0;
-    case Expense = 1;
+    case Automatic = 0;
+    case Manually = 1;
 }

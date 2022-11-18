@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\TransactionsController;
+use App\Http\Controllers\IncomesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -10,8 +10,7 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::resource('transactions', TransactionsController::class);
-
+    Route::resource('incomes', IncomesController::class);
 });
 
 Route::get('/dashboard', function () {

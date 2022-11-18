@@ -19,14 +19,14 @@ class CategoriesSeeder extends Seeder
                 'type' => TransactionType::Expense->value,
                 'chart_color' => '#00FF00',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ],
             [
                 'name' => 'salary',
                 'type' => TransactionType::Income->value,
                 'chart_color' => '#00FFOO',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ],
         ]);
     }

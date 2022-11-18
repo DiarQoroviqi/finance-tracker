@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace App\Enums;
 
+use App\Enums\Concerns\InteractsWithBackedEnum;
 use App\Enums\Concerns\InteractsWithRandom;
 
-enum TransactionRepeatingType: string
+enum TransactionRepeatingType: int
 {
     use InteractsWithRandom;
+    use InteractsWithBackedEnum;
 
-    case Days = 'days';
-    case Weeks = 'weeks';
-    case Months = 'months';
+    case Day = 0;
+    case Week = 1;
+    case Month = 2;
 }

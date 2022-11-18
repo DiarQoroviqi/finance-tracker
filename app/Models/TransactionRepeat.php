@@ -6,18 +6,32 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class TransactionRepeat extends Model
 {
     use HasFactory;
 
     protected $casts = [
-        'ends_at' => 'datetime',
+        'ends_at' => 'date',
     ];
 
-    public function transaction(): BelongsTo
+    protected $fillable = [
+        'confirmation_type',
+        'period',
+        'period_type',
+        'ends_at',
+    ];
+
+    public function transaction(): HasOne
     {
-        return $this->belongsTo(Transaction::class, 'transaction_repeat_id');
+        return $this->hasOne(Transaction::class, 'transaction_repeat_id');
+    }
+
+    public static function periods(): array
+    {
+        return collect(range(1, 31))->mapWithKeys(function ($value) {
+            return [$value => $value];
+        })->toArray();
     }
 }

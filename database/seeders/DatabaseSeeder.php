@@ -20,10 +20,10 @@ class DatabaseSeeder extends Seeder
             CategoriesSeeder::class,
         ]);
 
-         \App\Models\User::factory()->create([
-             'name' => 'Diar Qoroviqi',
-             'email' => 'qoroviqidiar@gmail.com',
-             'password' => bcrypt('password'),
-         ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Diar Qoroviqi',
+            'email' => 'qoroviqidiar@gmail.com',
+            'password' => bcrypt('password'),
+        ]);
     }
 }

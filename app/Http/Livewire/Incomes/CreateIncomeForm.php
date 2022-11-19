@@ -65,7 +65,9 @@ class CreateIncomeForm extends Component
             $transaction->repeat()->associate($transactionRepeat);
         }
 
-        return redirect()->route('dashboard');
+        session()->flash('success', __('Income created successfully.'));
+
+        return redirect()->route('incomes.index');
     }
 
     private function hydrateProperties(): void

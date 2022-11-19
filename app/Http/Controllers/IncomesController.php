@@ -9,13 +9,9 @@ use Illuminate\View\View;
 
 class IncomesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index(): View
     {
+        return view('incomes.index');
     }
 
     public function create(): View

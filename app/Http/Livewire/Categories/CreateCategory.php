@@ -13,6 +13,7 @@ class CreateCategory extends ModalComponent
     use Actions;
 
     public string $name = '';
+
     public string $chart_color = '';
 
     protected function rules(): array
@@ -53,5 +54,4 @@ class CreateCategory extends ModalComponent
     {
         return view('livewire.categories.create-category');
     }
-
 }

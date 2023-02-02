@@ -12,7 +12,7 @@ class CategoriesOverview extends Component
     public function render()
     {
         return view('livewire.categories.categories-overview', [
-            'categories' => Category::all(['id', 'name', 'chart_color', 'created_at'])
+            'categories' => Category::all(['id', 'name', 'chart_color', 'created_at']),
         ])
             ->layout('layouts.app', ['header' => 'Categories']);
     }

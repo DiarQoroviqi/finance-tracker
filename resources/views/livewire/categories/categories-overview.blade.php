@@ -1,9 +1,8 @@
 <div>
     <div class="sm:flex sm:items-center">
         <div class="mt-4 sm:mt-0 sm:flex-none">
-            <x-button
+            <x-button primary
                 type="button"
-                class="text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 justify-center text-sm"
                 wire:click="$emit('openModal', 'categories.create-category')"
             >
                 <x-icon name="plus-circle" class="w-6 h-6 mr-2" /> New Category
@@ -41,9 +40,12 @@
                                         {{ $category->created_at->toDateTimeString() }}
                                     </td>
                                     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6 flex justify-end">
-                                        <a href="#" class="text-indigo-600 hover:text-indigo-900 border-2 mr-4 border border-indigo-600 hover:border-black-600 rounded-md">
+                                        <button type="button"
+                                                class="text-indigo-600 hover:text-indigo-900 border-2 mr-4 border border-indigo-600 hover:border-black-600 rounded-md"
+                                                wire:click="$emit('openModal', 'categories.edit-category', {{ json_encode(['category' => $category]) }})"
+                                        >
                                             <x-icon name="pencil" class="w-8 h-8 p-1 hover:text-black-600" />
-                                        </a>
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach

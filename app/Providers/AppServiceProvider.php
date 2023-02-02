@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Component;
 
@@ -29,5 +30,7 @@ class AppServiceProvider extends ServiceProvider
         Component::macro('notify', function ($message) {
             $this->dispatchBrowserEvent('notify', $message);
         });
+
+        Model::preventLazyLoading(! $this->app->isProduction());
     }
 }

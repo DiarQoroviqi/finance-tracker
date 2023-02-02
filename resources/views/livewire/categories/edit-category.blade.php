@@ -1,5 +1,5 @@
 <div>
-    <x-modal-form-section submit="create">
+    <x-modal-form-section submit="updateCategory">
         <x-slot name="title">
             {{ __('Create Category') }}
         </x-slot>
@@ -10,26 +10,28 @@
 
                 <x-input label="Name"
                          class="mt-1 block w-full"
-                         id="name" name="name"
-                         wire:model.defer="name"/>
+                         wire:model.defer="state.name"/>
             </div>
             <div>
                 <x-color-picker label="Select a Color"
                                 placeholder="Select category color for charts"
                                 class="mt-1 block w-full"
-                                id="chart_color"
-                                name="chart_color"
-                                wire:model.defer="chart_color"/>
+                                wire:model.defer="state.chart_color"/>
             </div>
         </x-slot>
 
         <x-slot name="actions">
+            <x-button red type="button" class="mr-2" wire:click="closeModal"
+                      wire:click="$emit('openModal', 'categories.delete-category', {{ json_encode(['category' => $category->id])  }})">
+                {{ __('Delete') }}
+            </x-button>
+
             <x-button white type="button" class="ml-auto mr-2" wire:click="closeModal">
                 {{ __('Close') }}
             </x-button>
 
-            <x-button primary type="submit" >
-                {{ __('Create') }}
+            <x-button primary type="submit">
+                {{ __('Update') }}
             </x-button>
         </x-slot>
     </x-modal-form-section>

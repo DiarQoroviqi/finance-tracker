@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Livewire\Categories;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use LivewireUI\Modal\ModalComponent;
 use WireUi\Traits\Actions;
@@ -29,7 +30,7 @@ class CreateCategory extends ModalComponent
         return '6xl';
     }
 
-    public function create()
+    public function create(): void
     {
         $this->validate();
 
@@ -50,7 +51,7 @@ class CreateCategory extends ModalComponent
         );
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.categories.create-category');
     }

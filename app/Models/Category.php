@@ -4,21 +4,22 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Enums\TransactionType;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Category extends Model
 {
     use HasFactory;
 
-    protected $casts = [
-        'type' => TransactionType::class,
+    protected $fillable = [
+        'name',
+        'user_id',
+        'chart_color'
     ];
 
-    public function scopeIncome($query): Builder
+    public function user(): BelongsTo
     {
-        return $query->where('type', TransactionType::Income);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

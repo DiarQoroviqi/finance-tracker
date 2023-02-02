@@ -18,7 +18,7 @@ return new class extends Migration
                 ->default(TransactionConfirmType::Automatic->value);
             $table->unsignedSmallInteger('period')->default(1);
             $table->string('period_type')
-                ->default(TransactionRepeatingType::Months->value);
+                ->default(TransactionRepeatingType::Month->value);
             $table->dateTime('ends_at')->nullable();
             $table->timestamps();
         });

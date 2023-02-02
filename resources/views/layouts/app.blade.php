@@ -9,12 +9,14 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
-
+        <wireui:scripts />
         @livewireStyles
         <!-- Scripts -->
         @vite('resources/js/app.js')
     </head>
     <body class="font-sans antialiased">
+        <x-notifications />
+
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
@@ -22,11 +24,11 @@
                 <x-notifications />
                 <div class="py-6">
                     @if (isset($header))
-                        <div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-                            <h1 class="text-2xl font-semibold text-gray-900">{{ $header }}</h1>
+                        <div class="mx-auto max-w-7xl">
+                            <h1 class="text-2xl font-semibold text-gray-900 border-b-2 mb-5">{{ $header }}</h1>
                         </div>
                     @endif
-                    <div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+                    <div class="mx-auto max-w-7xl">
                         {{ $slot }}
                     </div>
                 </div>
@@ -34,6 +36,7 @@
 
         </div>
 
+        @livewire('livewire-ui-modal')
         @livewireScripts
     </body>
 </html>

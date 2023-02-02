@@ -13,14 +13,12 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('receipts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->string('name');
-            $table->string('icon', 128)->nullable();
-            $table->string('chart_color', 10);
+            $table->foreignId('transaction_id');
+            $table->string('file_name');
             $table->timestamps();
         });
     }
@@ -30,8 +28,8 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('receipts');
     }
 };

@@ -7,6 +7,7 @@ namespace Database\Factories;
 use App\Enums\TransactionType;
 use App\Models\Category;
 use App\Models\Transaction;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -25,6 +26,7 @@ class TransactionFactory extends Factory
     {
         return [
             'category_id' => Category::all()->random(),
+            'user_id' => User::factory()->create(),
             'transaction_repeat_id' => null,
             'type' => TransactionType::getRandom()->value,
             'date' => now(),

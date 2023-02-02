@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
-use App\Enums\TransactionType;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -25,7 +25,7 @@ class CategoryFactory extends Factory
     {
         return [
             'name' => $this->faker->sentence(1),
-            'type' => TransactionType::getRandom()->value,
+            'user_id' => User::factory(),
             'icon' => Str::slug($this->faker->sentence(2)),
             'chart_color' => $this->faker->hexColor(),
         ];

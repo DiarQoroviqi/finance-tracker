@@ -29,7 +29,7 @@ class DeleteCategory extends ModalComponent
         $this->category->delete();
 
         $this->forceClose()->closeModalWithEvents([
-            CategoriesOverview::getName() => 'categoryDeleted'
+            CategoriesOverview::getName() => 'categoryDeleted',
         ]);
 
         $this->notification()->success(

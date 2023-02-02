@@ -21,7 +21,6 @@
             @include('layouts.navigation')
 
             <main class="flex-1">
-                <x-notifications />
                 <div class="py-6">
                     @if (isset($header))
                         <div class="mx-auto max-w-7xl">

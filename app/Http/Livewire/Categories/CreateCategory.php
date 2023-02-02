@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Http\Livewire\Categories;
 
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Auth;
 use LivewireUI\Modal\ModalComponent;
 use WireUi\Traits\Actions;
 
@@ -27,16 +26,14 @@ class CreateCategory extends ModalComponent
 
     public static function modalMaxWidth(): string
     {
-        return '6xl';
+        return 'lg';
     }
 
     public function create(): void
     {
         $this->validate();
 
-        $user = Auth::user();
-
-        $user->categories()->create([
+        auth()->user()->categories()->create([
             'name' => $this->name,
             'chart_color' => $this->chart_color,
         ]);
